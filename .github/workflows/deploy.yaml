@@ -24,10 +24,6 @@ jobs:
         pip install -r requirements.txt
 
     - name: Build and push Docker image
-      uses: actions/checkout@v2
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
       run: |
         docker build -t myapp .
         docker tag myapp:latest <your-docker-registry>/<repository>:latest
